@@ -13,6 +13,7 @@ public class WallButton : MonoBehaviour
     public GameObject button;
     public GameObject button2;
     private GameObject player;
+    public UnityEvent onclick;
 
 
     private void Start()
@@ -32,6 +33,7 @@ public class WallButton : MonoBehaviour
                 {
                     wallOFF = true;
                     button.GetComponent<SpriteRenderer>().enabled = false;
+                    onclick.Invoke();
                 }
 
                 if (player1In && !wallOFF)
@@ -51,6 +53,7 @@ public class WallButton : MonoBehaviour
                 {
                     wallOFF = true;
                     button2.GetComponent<SpriteRenderer>().enabled = false;
+                    onclick.Invoke();
                 }
 
                 if (player2In && !wallOFF)

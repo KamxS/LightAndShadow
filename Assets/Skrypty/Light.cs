@@ -32,6 +32,7 @@ public class Light : MonoBehaviour
                 collision.GetComponent<PlayerLight>().potentialLights.Remove(transform);
             }
         }
+        
     }
 
     public void TurnOff()

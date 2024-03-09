@@ -73,7 +73,7 @@ public class PlayerLight : MonoBehaviour
 
     void Die()
     {
-        //levelManager.Restart();
+        levelManager.Restart();
         Destroy(gameObject);
     }
 }
