@@ -1636,6 +1636,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 618092482654857014, guid: 88a1257ec8e911146898b2216f7bda8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2763857713968714834, guid: 88a1257ec8e911146898b2216f7bda8b, type: 3}
       propertyPath: GameScene
       value: beta
