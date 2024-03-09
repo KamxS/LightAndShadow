@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    //public Sound[] musicSounds, sfxSounds;
+    public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
     public static bool muteMusic = false;
@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     public static float VolumeSFX;
 
     public bool isMenu;
-  //  public PauseMenu pauseMenu;
+   // public PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     {
         if (isMenu)
         {
-            PlayMusic("MenuMusic");
+            PlayMusic("Theme");
         }
         else
             PlayMusic("Theme");
@@ -42,32 +42,32 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic(string name)
     {
-     //   Sound s = Array.Find(musicSounds, x => x.NameSound == name);
+     Sound s = Array.Find(musicSounds, x => x.NameSound == name);
 
-     //   if (s == null)
-    //    {
-     //       Debug.Log("Song not found");
-  //      }
-     //   else
-    //    {
-     //       musicSource.clip = s.Clip;
-    //        musicSource.Play();
-   //     }
+            if (s == null)
+            {
+                Debug.Log("Song not found");
+            }
+            else
+            {
+               musicSource.clip = s.Clip;
+               musicSource.Play();
+            }
 
     }
 
     public void PlaySFX(string name)
     {
-    //    Sound s = Array.Find(sfxSounds, x => x.NameSound == name);
+       Sound s = Array.Find(sfxSounds, x => x.NameSound == name);
 
-      //  if (s == null)
-     //   {
-     //       Debug.Log("Sound Not Found");
-     //   }
-     //   else
-      //  {
-       //     sfxSource.PlayOneShot(s.Clip);
-     //   }
+          if (s == null)
+          {
+                Debug.Log("Sound Not Found");
+          }
+          else
+          {
+                sfxSource.PlayOneShot(s.Clip);
+          }
     }
 
     private void Update()
