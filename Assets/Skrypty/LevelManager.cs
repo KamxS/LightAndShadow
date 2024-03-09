@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] GameObject Player1;
-    [SerializeField] GameObject Player2;
-    [SerializeField] Transform Player1StartPos;
-    [SerializeField] Transform Player2StartPos;
-    public int playersIn;
+    public int playersOut;
+    [SerializeField] string nextSceneName;
     void Start()
     {
         
@@ -18,14 +15,23 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playersIn==2)
+        if(playersOut==2)
         {
-            Debug.Log("Win");
+            NextLevel();
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 }

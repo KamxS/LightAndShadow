@@ -42,6 +42,7 @@ public class Light : MonoBehaviour
     }
     public void TurnOn()
     {
-
+        trigger.enabled = true;
+        light.enabled = true;
     }
 }

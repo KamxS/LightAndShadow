@@ -17,8 +17,6 @@ public class MoveableWall : MonoBehaviour
     }
     public void Move()
     {
-        //transform.position = Vector2.MoveTowards(transform.position, towards.position, 1.0f);
-        Debug.Log(towards.position - transform.position);
         transform.DOMove(towards.position, moveSpeed);
     }
 }

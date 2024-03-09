@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public string GameScene = "beta";
+    public string GameScene;
     public GameObject uiSettings;
     public GameObject uiCredtis;
 
     public void Play()
     {
-        SceneManager.LoadScene(GameScene);
        SoundManager.Instance.PlaySFX("Play");
+       SceneManager.LoadScene(GameScene);
     }
 
     public void Settings()

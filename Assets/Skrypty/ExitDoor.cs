@@ -10,14 +10,6 @@ public class ExitDoor : MonoBehaviour
     {
         levelManager= GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelManager>();
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && player)
-        {
-            levelManager.playersIn += 1;
-            Destroy(player.gameObject);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -25,13 +17,8 @@ public class ExitDoor : MonoBehaviour
             player = collision.transform;
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            player = null;
-        }   
+    public void Exit() { 
+        levelManager.playersOut+= 1;
+        Destroy(player.gameObject);
     }
-
 }
