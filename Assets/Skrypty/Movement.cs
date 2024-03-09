@@ -13,7 +13,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Player == 1)
@@ -30,7 +29,6 @@ public class Movement : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             }
-            Debug.Log(Input.GetAxis("Horizontal2"));
             rb.velocity = new Vector2(Input.GetAxis("Horizontal2") * speed, rb.velocity.y);
 
         }
