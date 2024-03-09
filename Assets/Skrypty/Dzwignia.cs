@@ -13,7 +13,7 @@ public class Dzwignia : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && playerIn)
         {
-            if(on)
+            if(isOn)
             {
                 off.Invoke();
                 isOn = false;
