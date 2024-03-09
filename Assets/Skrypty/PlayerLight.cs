@@ -43,7 +43,6 @@ public class PlayerLight : MonoBehaviour
             Debug.DrawRay(light.position, transform.position - light.position);
             if (hit.collider.tag != "Player")
             {
-                Debug.Log("Wyjebaæ œwiat³o");
                 toChange.Add(light);
                 // lightsPlayerIsIn.Remove(light);
                 //potentialLights.Add(light);

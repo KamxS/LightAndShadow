@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Transform player;
+    LevelManager levelManager;
     void Start()
     {
-        
+        levelManager= GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelManager>();
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E) && player)
+        {
+            levelManager.playersIn += 1;
+            Destroy(player.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            player = collision.transform;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if(collision.tag == "Player")
+        {
+            player = null;
+        }   
     }
+
 }
