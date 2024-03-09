@@ -23,6 +23,10 @@ public class PlayerLight : MonoBehaviour
         } 
     }
 
+    private void FixedUpdate()
+    {
+    }
+
     void Die()
     {
         Destroy(gameObject);
