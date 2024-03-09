@@ -33,18 +33,25 @@ public class Light : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 100.0f) ;
-        Debug.DrawRay(transform.position, player.position - transform.position);
-        if(hit.collider.tag !="Player" && playerInside)
+        if(collision.tag == "Player")
         {
-            playerInside = false;
-            collision.GetComponent<PlayerLight>().lightsPlayerIsIn.Remove(transform);
-        }else if(hit.collider.tag == "Player" && !playerInside)
-        {
-            collision.GetComponent<PlayerLight>().lightsPlayerIsIn.Add(transform);
-        }
-    }
 
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, 100.0f) ;
+            Debug.DrawRay(transform.position, player.position - transform.position);
+            //if(hit.collider.tag !="Player" && playerInside)
+            if (hit.collider.tag != "Player")
+            {
+                //playerInside = false;
+                collision.GetComponent<PlayerLight>().lightsPlayerIsIn.Remove(transform);
+                //}else if(hit.collider.tag == "Player" && !playerInside)
+            }
+            else if (hit.collider.tag == "Player")
+            {
+                collision.GetComponent<PlayerLight>().lightsPlayerIsIn.Add(transform);
+            }
+        }
+        
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
