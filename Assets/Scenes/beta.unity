@@ -5140,6 +5140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844967745534667196, guid: e1d7dbfc83208b1429f6d450ea8a3a18, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3844967745534667197, guid: e1d7dbfc83208b1429f6d450ea8a3a18, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -7888,6 +7892,10 @@ PrefabInstance:
     - target: {fileID: 3057520553389460594, guid: 2767744855122394faad800c567ed5a4, type: 3}
       propertyPath: lightsPlayerIsIn.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057520553389460595, guid: 2767744855122394faad800c567ed5a4, type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2767744855122394faad800c567ed5a4, type: 3}
