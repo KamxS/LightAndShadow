@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLight : MonoBehaviour
 {
+    LevelManager levelManager;
     int player;
     public List<Transform> lightsPlayerIsIn;
     public List<Transform> potentialLights;
@@ -11,6 +12,8 @@ public class PlayerLight : MonoBehaviour
     void Start()
     {
         player = GetComponent<Movement>().Player;
+        levelManager= GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelManager>();
+        Debug.Log(levelManager);
     }
 
     private void Update()
@@ -71,6 +74,7 @@ public class PlayerLight : MonoBehaviour
 
     void Die()
     {
+        //levelManager.Restart();
         Destroy(gameObject);
     }
 }
