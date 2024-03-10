@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &968482312
 Transform:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.6594571
+  orthographic size: 2.1256576
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -364,4 +364,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersOut: 0
   nextSceneName: lvl2
+  menu: menu
   transitionAnim: {fileID: 968482311}
