@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public int playersOut;
     [SerializeField] string nextSceneName;
+    [SerializeField] Animator transitionAnim;
     void Start()
     {
         
@@ -32,6 +33,15 @@ public class LevelManager : MonoBehaviour
 
     void NextLevel()
     {
-        SceneManager.LoadScene(nextSceneName);
+        StartCoroutine(LoadLevel());
     }
+
+    IEnumerator LoadLevel()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(nextSceneName);
+        transitionAnim.SetTrigger("Start");
+    }
+
 }
