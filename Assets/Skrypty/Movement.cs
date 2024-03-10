@@ -78,6 +78,38 @@ public class Movement : MonoBehaviour
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
 
-
     }
+
+
+    public void RandomFootStep()
+    {
+        int randomnumber = Random.Range(0, 5);
+        {
+            if(randomnumber == 0)
+            {
+                SoundManager.Instance.PlaySFX("step1");
+            }
+            if (randomnumber == 1)
+            {
+                SoundManager.Instance.PlaySFX("step2");
+            }
+            if (randomnumber == 2)
+            {
+                SoundManager.Instance.PlaySFX("step3");
+            }
+            if (randomnumber == 3)
+            {
+                SoundManager.Instance.PlaySFX("step4");
+            }
+            if (randomnumber == 4)
+            {
+                SoundManager.Instance.PlaySFX("step5");
+            }
+        }
+    }
+
+
+
+
+
 }
