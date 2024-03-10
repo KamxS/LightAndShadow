@@ -26,7 +26,7 @@ public class PlayerLight : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(light.position, transform.position - light.position, 100.0f) ;
             Debug.DrawRay(light.position, transform.position - light.position);
-            if (hit.collider.tag == "Player")
+            if (hit.collider.name == gameObject.name)
             {
                 toChange.Add(light);
             }
@@ -35,7 +35,7 @@ public class PlayerLight : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(light.position, transform.position - light.position, 100.0f) ;
             Debug.DrawRay(light.position, transform.position - light.position);
-            if (hit.collider.tag != "Player")
+            if (hit.collider.name != gameObject.name)
             {
                 toChange.Add(light);
             }
