@@ -24,17 +24,12 @@ public class Clickable : MonoBehaviour
 
     private void Update()
     {
-        if(playerNum == 1 && Input.GetKeyDown(KeyCode.E))
+        if (playerNum == 1 && Input.GetKeyDown(KeyCode.E) || playerNum == 2 && Input.GetKeyDown(KeyCode.I))
         {
+            if (!multiUsable) trigger.enabled = false;
             onclick.Invoke();
-            if (!multiUsable) trigger.enabled=false;
             SoundManager.Instance.PlaySFX("click");
-        }else if(playerNum==2 && Input.GetKeyDown(KeyCode.I))
-        {
-            onclick.Invoke();
-            if (!multiUsable) trigger.enabled=false;
-            SoundManager.Instance.PlaySFX("click");
-        }        
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,4 +54,5 @@ public class Clickable : MonoBehaviour
         player1Anim.GetComponent<SpriteRenderer>().enabled = false;
         player2Anim.GetComponent<SpriteRenderer>().enabled = false;
     }
+    
 }
