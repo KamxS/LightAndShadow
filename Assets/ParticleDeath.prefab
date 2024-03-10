@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3286870274961273476}
   - component: {fileID: 3286870274961273477}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ParticleDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286870274961273478}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

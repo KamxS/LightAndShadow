@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightsPlayerIsIn: []
   potentialLights: []
+  deathEffect: {fileID: 3286870274961273478, guid: a665b944711ee1347b37d41c7202426e, type: 3}
 --- !u!114 &3844967745534667196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   grounded: 0
   GoRight: 1
   walk: 0
+  OnPlatform: 0
 --- !u!95 &1307320391643260951
 Animator:
   serializedVersion: 4

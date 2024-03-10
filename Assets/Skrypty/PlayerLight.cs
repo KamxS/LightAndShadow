@@ -12,10 +12,7 @@ public class PlayerLight : MonoBehaviour
     public List<Transform> potentialLights;
     List<Transform> toChange;
     public GameObject deathEffect;
-    public SpriteRenderer sprite;
-    public Transform currentPos;
     Animator animator;
-
 
     void Start()
     {
@@ -64,18 +61,18 @@ public class PlayerLight : MonoBehaviour
         toChange.Clear();
         if(!godMode)
         {
-            if(player==1&& lightsPlayerIsIn.Count == 0)
+            if(player==1&& lightsPlayerIsIn.Count == 0 && candeath)
             {
-
                 animator.SetTrigger("flydeath");
                 Invoke("EffectDie", 0f);
+                Invoke("EffectParticleDie", 0.8f);
                 Invoke("Die", 1.45f);              
             }
-            else if(player ==2 && lightsPlayerIsIn.Count>0)
+            else if(player ==2 && lightsPlayerIsIn.Count>0 && candeath)
             {
-
                 animator.SetTrigger("flydeath");
                 Invoke("EffectDie", 0f);
+                Invoke("EffectParticleDie", 0.8f);
                 Invoke("Die", 1.45f);
             }
         }
@@ -94,8 +91,6 @@ public class PlayerLight : MonoBehaviour
 
     void EffectDie()
     {
-        if(candeath)
-        {
             foreach(GameObject players in GameObject.FindGameObjectsWithTag("Player"))
             {
                 players.GetComponent<Movement>().enabled = false;
@@ -105,14 +100,12 @@ public class PlayerLight : MonoBehaviour
             }
             SoundManager.Instance.PlaySFX("death");
             candeath = false;
-        }
 
     }
-
-    void EffectParticelDie()
+    void EffectParticleDie()
     {
-        GameObject effectInstance1 = (GameObject)Instantiate(deathEffect, currentPos.position, currentPos.rotation);
+        GameObject effectInstance1 = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effectInstance1, 3f);
-        sprite.enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }

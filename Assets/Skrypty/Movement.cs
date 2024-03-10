@@ -27,8 +27,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-
     void Update()
     {
 
@@ -109,9 +107,4 @@ public class Movement : MonoBehaviour
             }
         }
     }
-
-
-
-
-
 }
