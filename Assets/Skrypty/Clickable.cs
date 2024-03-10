@@ -26,10 +26,12 @@ public class Clickable : MonoBehaviour
     {
         if(playerNum == 1 && Input.GetKeyDown(KeyCode.E))
         {
+            SoundManager.Instance.PlaySFX("click");
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
         }else if(playerNum==2 && Input.GetKeyDown(KeyCode.I))
         {
+            SoundManager.Instance.PlaySFX("click");
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
         }        
