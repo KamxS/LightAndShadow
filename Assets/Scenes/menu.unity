@@ -2523,6 +2523,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: f665c7ae58cec31469520e2e8a730bf6, type: 3}
   - NameSound: step5
     Clip: {fileID: 8300000, guid: 5d08bb4e3bd490e40b33dff9e25b1363, type: 3}
+  - NameSound: death
+    Clip: {fileID: 8300000, guid: a24cfde8b6417f44fb786d5cbd2d576c, type: 3}
   musicSource: {fileID: 1155794449}
   sfxSource: {fileID: 1606550764}
   isMenu: 1
