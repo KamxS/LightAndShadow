@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.W) && grounded)
             {
                 rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+                SoundManager.Instance.PlaySFX("jump");
             }
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
 
@@ -55,6 +56,7 @@ public class Movement : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.UpArrow) && grounded)
             {
                 rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+                SoundManager.Instance.PlaySFX("jump");
             }
             rb.velocity = new Vector2(Input.GetAxis("Horizontal2") * speed, rb.velocity.y);
 

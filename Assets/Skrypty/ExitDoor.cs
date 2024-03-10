@@ -17,7 +17,9 @@ public class ExitDoor : MonoBehaviour
             player = collision.transform;
         }
     }
-    public void Exit() { 
+    public void Exit() 
+    {
+        SoundManager.Instance.PlaySFX("door");
         levelManager.playersOut+= 1;
         Destroy(player.gameObject);
     }
