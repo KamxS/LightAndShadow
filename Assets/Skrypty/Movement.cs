@@ -34,19 +34,12 @@ public class Movement : MonoBehaviour
 
         animator.SetBool("Grounded", grounded);
         animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-        animator.SetBool("Walk", walk);
+        animator.SetBool("walk", walk);
 
         if (!grounded)
         {
             walk = false;
         }
-
-        if(grounded && rb.velocity.x > 0)
-        {
-            walk = true;
-        }
-        else
-            walk = false;
 
         if (Player == 1)
         {
@@ -55,6 +48,7 @@ public class Movement : MonoBehaviour
                 rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             }
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+
         }
         else if(Player == 2)
         {
@@ -63,6 +57,7 @@ public class Movement : MonoBehaviour
                 rb.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             }
             rb.velocity = new Vector2(Input.GetAxis("Horizontal2") * speed, rb.velocity.y);
+
         }
         onGround = Physics2D.Raycast(transform.position, new Vector2(0, -1f), 0.01f, 8);
 

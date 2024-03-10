@@ -132,7 +132,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c41a915fbb832e04e90beaa0e17bc37d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
   jumpHeight: 3
   onGround: 1
   groundCheck: {fileID: 2459511586042654592}
-  groundCheckRadius: 0.1
+  groundCheckRadius: 0.01
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
