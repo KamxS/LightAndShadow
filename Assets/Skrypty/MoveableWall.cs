@@ -5,19 +5,27 @@ using DG.Tweening;
 
 public class MoveableWall : MonoBehaviour
 {
-    [SerializeField] Transform towards;
+    [SerializeField] string soundName;
+    [SerializeField] List<Transform> towards;
     [SerializeField] float moveSpeed;
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    [SerializeField] bool loop;
     public void Move()
     {
-        transform.DOMove(towards.position, moveSpeed);
-        SoundManager.Instance.PlaySFX("stronedrag");
+        MoveToOne(0);
+    }
+
+    void MoveToOne(int ind)
+    {
+        SoundManager.Instance.PlaySFX(soundName);
+        transform.DOMove(towards[ind].position, moveSpeed).OnComplete(() =>
+        {
+            if (ind < towards.Count-1)
+            {
+                MoveToOne(ind + 1);
+            }else if(loop)
+            {
+                MoveToOne(0);
+            }
+        });
     }
 }

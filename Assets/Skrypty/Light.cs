@@ -8,11 +8,19 @@ public class Light : MonoBehaviour
     Collider2D trigger;
     Light2D light;
     public bool turnedOff= false;
+    [SerializeField] bool flashing = false;
+    public float flashingInterval;
     private void Start()
     {
         trigger = GetComponent<Collider2D>();
         light = GetComponent<Light2D>();
-        if (turnedOff) TurnOff();
+        if (turnedOff)
+        {
+            TurnOff();
+        } else if(flashing)
+        {
+            StartCoroutine("Flash");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,5 +66,24 @@ public class Light : MonoBehaviour
         turnedOff = false;
         trigger.enabled = true;
         light.enabled = true;
+
+        if(flashing)
+        {
+            StartCoroutine("Flash");
+        }
+    }
+
+    IEnumerator Flash()
+    {
+        while (!turnedOff)
+        {
+            Debug.Log("Turn Off");
+            trigger.enabled = false;
+            light.enabled = false;
+            yield return new WaitForSeconds(1.0f);
+            trigger.enabled = true;
+            light.enabled = true;
+            yield return new WaitForSeconds(flashingInterval);
+        }
     }
 }

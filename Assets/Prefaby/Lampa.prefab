@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnedOff: 0
+  flashing: 0
+  flashingInterval: 0
 --- !u!1 &6762184049405001006
 GameObject:
   m_ObjectHideFlags: 0
