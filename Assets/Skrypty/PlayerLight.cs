@@ -98,9 +98,8 @@ public class PlayerLight : MonoBehaviour
                 players.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
                 players.GetComponent<Rigidbody2D>().gravityScale = 0;
             }
-            SoundManager.Instance.PlaySFX("death");
             candeath = false;
-
+            SoundManager.Instance.PlaySFX("death");
     }
     void EffectParticleDie()
     {
