@@ -26,14 +26,14 @@ public class Clickable : MonoBehaviour
     {
         if(playerNum == 1 && Input.GetKeyDown(KeyCode.E))
         {
-            SoundManager.Instance.PlaySFX("click");
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
+            SoundManager.Instance.PlaySFX("click");
         }else if(playerNum==2 && Input.GetKeyDown(KeyCode.I))
         {
-            SoundManager.Instance.PlaySFX("click");
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
+            SoundManager.Instance.PlaySFX("click");
         }        
     }
 
@@ -47,6 +47,7 @@ public class Clickable : MonoBehaviour
                 player1Anim.GetComponent<SpriteRenderer>().enabled = true;
             }else if(playerNum==2)
             {
+                Debug.Log("Player 2 enter");
                 player2Anim.GetComponent<SpriteRenderer>().enabled = true;
             }
         }
