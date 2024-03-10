@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
 
     public bool GoRight = true;
     public bool walk;
+    public bool OnPlatform;
 
 
     Animator animator;
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
 
     void Update()
     {

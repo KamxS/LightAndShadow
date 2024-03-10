@@ -8,6 +8,9 @@ TagManager:
   - Sound
   - Game SFX
   - Game Music
+  - Player1
+  - Player2
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX

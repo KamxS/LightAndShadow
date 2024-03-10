@@ -7,9 +7,16 @@ public class PlayerLight : MonoBehaviour
     LevelManager levelManager;
     int player;
     bool godMode = true;
+    bool candeath = true;
     public List<Transform> lightsPlayerIsIn;
     public List<Transform> potentialLights;
     List<Transform> toChange;
+    public GameObject deathEffect;
+    public SpriteRenderer sprite;
+    public Transform currentPos;
+    Animator animator;
+
+
     void Start()
     {
         toChange = new List<Transform>();
@@ -18,6 +25,7 @@ public class PlayerLight : MonoBehaviour
         player = GetComponent<Movement>().Player;
         levelManager= GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelManager>();
         Invoke("SpawnProtectionOff", 0.1f);
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -58,10 +66,17 @@ public class PlayerLight : MonoBehaviour
         {
             if(player==1&& lightsPlayerIsIn.Count == 0)
             {
-                Die();
-            }else if(player ==2 && lightsPlayerIsIn.Count>0)
+
+                animator.SetTrigger("flydeath");
+                Invoke("EffectDie", 0f);
+                Invoke("Die", 1.45f);              
+            }
+            else if(player ==2 && lightsPlayerIsIn.Count>0)
             {
-                Die();
+
+                animator.SetTrigger("flydeath");
+                Invoke("EffectDie", 0f);
+                Invoke("Die", 1.45f);
             }
         }
     }
@@ -74,5 +89,30 @@ public class PlayerLight : MonoBehaviour
     void Die()
     {
         levelManager.Restart();
+        candeath = true;
+    }
+
+    void EffectDie()
+    {
+        if(candeath)
+        {
+            foreach(GameObject players in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                players.GetComponent<Movement>().enabled = false;
+                players.GetComponent<Rigidbody2D>().isKinematic = true;
+                players.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+                players.GetComponent<Rigidbody2D>().gravityScale = 0;
+            }
+            SoundManager.Instance.PlaySFX("death");
+            candeath = false;
+        }
+
+    }
+
+    void EffectParticelDie()
+    {
+        GameObject effectInstance1 = (GameObject)Instantiate(deathEffect, currentPos.position, currentPos.rotation);
+        Destroy(effectInstance1, 3f);
+        sprite.enabled = false;
     }
 }
