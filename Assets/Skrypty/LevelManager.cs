@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public int playersOut;
     [SerializeField] string nextSceneName;
+    [SerializeField] string menu;
     [SerializeField] Animator transitionAnim;
     void Start()
     {
@@ -30,6 +31,12 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(menu);
+    }
+
 
     void NextLevel()
     {
