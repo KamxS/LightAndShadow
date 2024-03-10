@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3057520553389460557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.71, y: 0.58, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2965430369747108901}
@@ -164,8 +164,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: 1
   ground: {fileID: 2965430369747108901}
-  speed: 2
-  jumpHeight: 5
+  speed: 1.5
+  jumpHeight: 3
+  onGround: 1
+  groundCheck: {fileID: 2965430369747108901}
+  groundCheckRadius: 0.1
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  grounded: 0
+  GoRight: 1
+  walk: 0
 --- !u!1 &4982115405281383469
 GameObject:
   m_ObjectHideFlags: 0
