@@ -63,17 +63,38 @@ public class PlayerLight : MonoBehaviour
         {
             if(player==1&& lightsPlayerIsIn.Count == 0 && candeath)
             {
-                animator.SetTrigger("flydeath");
-                Invoke("EffectDie", 0f);
-                Invoke("EffectParticleDie", 0.8f);
-                Invoke("Die", 1.45f);              
+                if(!GetComponent<Movement>().grounded)
+                {
+                    animator.SetTrigger("flydeath");
+                    Invoke("EffectDie", 0f);
+                    Invoke("EffectParticleDie", 0.8f);
+                    Invoke("Die", 1.45f);
+                }
+                else if(GetComponent<Movement>().grounded)
+                {
+                    animator.SetTrigger("death");
+                    Invoke("EffectDie", 0f);
+                    Invoke("EffectParticleDie", 0.8f);
+                    Invoke("Die", 1.45f);
+                }
+          
             }
             else if(player ==2 && lightsPlayerIsIn.Count>0 && candeath)
             {
-                animator.SetTrigger("flydeath");
-                Invoke("EffectDie", 0f);
-                Invoke("EffectParticleDie", 0.8f);
-                Invoke("Die", 1.45f);
+                if (!GetComponent<Movement>().grounded)
+                {
+                    animator.SetTrigger("flydeath");
+                    Invoke("EffectDie", 0f);
+                    Invoke("EffectParticleDie", 0.8f);
+                    Invoke("Die", 1.45f);
+                }
+                else if (GetComponent<Movement>().grounded)
+                {
+                    animator.SetTrigger("death");
+                    Invoke("EffectDie", 0f);
+                    Invoke("EffectParticleDie", 0.8f);
+                    Invoke("Die", 1.45f);
+                }
             }
         }
     }
