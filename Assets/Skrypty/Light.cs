@@ -7,10 +7,12 @@ public class Light : MonoBehaviour
 {
     Collider2D trigger;
     Light2D light;
+    public bool turnedOn = true;
     private void Start()
     {
         trigger = GetComponent<Collider2D>();
         light = GetComponent<Light2D>();
+        if (!turnedOn) TurnOff();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,14 +36,26 @@ public class Light : MonoBehaviour
         }
         
     }
-
-    public void TurnOff()
+    public void Turn()
     {
+        if(turnedOn)
+        {
+            TurnOff();
+        }else
+        {
+            TurnOn();
+        }
+    }
+
+    void TurnOff()
+    {
+        turnedOn = false;
         trigger.enabled = false;
         light.enabled = false;
     }
-    public void TurnOn()
+    void TurnOn()
     {
+        turnedOn = true;
         trigger.enabled = true;
         light.enabled = true;
     }

@@ -26,12 +26,10 @@ public class Clickable : MonoBehaviour
     {
         if(playerNum == 1 && Input.GetKeyDown(KeyCode.E))
         {
-            player1Anim.GetComponent<SpriteRenderer>().enabled = false;
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
         }else if(playerNum==2 && Input.GetKeyDown(KeyCode.I))
         {
-            player2Anim.GetComponent<SpriteRenderer>().enabled = false;
             onclick.Invoke();
             if (!multiUsable) trigger.enabled=false;
         }        
