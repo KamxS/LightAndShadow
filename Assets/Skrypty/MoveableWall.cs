@@ -18,5 +18,6 @@ public class MoveableWall : MonoBehaviour
     public void Move()
     {
         transform.DOMove(towards.position, moveSpeed);
+        SoundManager.Instance.PlaySFX("stronedrag");
     }
 }
