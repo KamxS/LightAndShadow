@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     public int Player;
     Rigidbody2D rb;
-    [SerializeField] Transform ground;
     [SerializeField] float speed;
     [SerializeField] float jumpHeight;
     public bool onGround =true;
