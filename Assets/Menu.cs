@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public string GameScene = "beta";
+    public string GameScene;
+    public GameObject uiLevelSelector;
     public GameObject uiSettings;
     public GameObject uiCredtis;
 
     public void Play()
     {
-        SceneManager.LoadScene(GameScene);
-       SoundManager.Instance.PlaySFX("Play");
+        SoundManager.Instance.PlaySFX("Switch");
+        uiLevelSelector.SetActive(!uiLevelSelector.activeSelf);
     }
 
     public void Settings()
@@ -25,6 +26,11 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("Credits");
         uiCredtis.SetActive(!uiCredtis.activeSelf);
+        SoundManager.Instance.PlaySFX("Switch");
+    }
+    public void PlayBacktoMenu()
+    {
+        uiLevelSelector.SetActive(!uiLevelSelector.activeSelf);
         SoundManager.Instance.PlaySFX("Switch");
     }
 

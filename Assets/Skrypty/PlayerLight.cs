@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlayerLight : MonoBehaviour
 {
+    LevelManager levelManager;
     int player;
+    bool godMode = true;
     public List<Transform> lightsPlayerIsIn;
     public List<Transform> potentialLights;
-    public List<Transform> toChange;
+    List<Transform> toChange;
     void Start()
     {
+        toChange = new List<Transform>();
+        lightsPlayerIsIn= new List<Transform>();
+        potentialLights = new List<Transform>();
         player = GetComponent<Movement>().Player;
+        levelManager= GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LevelManager>();
+        Invoke("SpawnProtectionOff", 0.1f);
     }
 
     private void Update()
@@ -19,31 +26,18 @@ public class PlayerLight : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(light.position, transform.position - light.position, 100.0f) ;
             Debug.DrawRay(light.position, transform.position - light.position);
-            //if(hit.collider.tag !="Player" && playerInside)
-            if (hit.collider.tag == "Player")
+            if (hit.collider.name == gameObject.name)
             {
                 toChange.Add(light);
-                //lightsPlayerIsIn.Add(light);
-                //potentialLights.Remove(light);
             }
-            /*
-            else if (hit.collider.tag == "Player")
-            {
-                lightsPlayerIsIn.Add(light);
-                collision.GetComponent<PlayerLight>().lightsPlayerIsIn.Add(transform);
-            }
-            */
         }
         foreach(Transform light in lightsPlayerIsIn)
         {
             RaycastHit2D hit = Physics2D.Raycast(light.position, transform.position - light.position, 100.0f) ;
             Debug.DrawRay(light.position, transform.position - light.position);
-            if (hit.collider.tag != "Player")
+            if (hit.collider.name != gameObject.name)
             {
-                Debug.Log("Wyjebaæ œwiat³o");
                 toChange.Add(light);
-                // lightsPlayerIsIn.Remove(light);
-                //potentialLights.Add(light);
             }
 
         }
@@ -60,17 +54,25 @@ public class PlayerLight : MonoBehaviour
             }
         }
         toChange.Clear();
-        if(player==1&& lightsPlayerIsIn.Count == 0)
+        if(!godMode)
         {
-            Die();
-        }else if(player ==2 && lightsPlayerIsIn.Count>0)
-        {
-            Die();
+            if(player==1&& lightsPlayerIsIn.Count == 0)
+            {
+                Die();
+            }else if(player ==2 && lightsPlayerIsIn.Count>0)
+            {
+                Die();
+            }
         }
+    }
+
+    void SpawnProtectionOff()
+    {
+        godMode = false;
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        levelManager.Restart();
     }
 }
