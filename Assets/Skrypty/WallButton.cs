@@ -6,28 +6,21 @@ using UnityEngine.Events;
 public class WallButton : MonoBehaviour
 {
     bool playerIn;
-    bool player1In;
-    bool player2In;
+    public bool player1In;
+    public bool player2In;
     public bool isInRange;
     public bool wallOFF;
     public GameObject button;
     public GameObject button2;
-    private GameObject player;
 
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
 
     private void Update()
     {
 
-
-
             if (player1In && !wallOFF)
             {
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     wallOFF = true;
@@ -47,6 +40,7 @@ public class WallButton : MonoBehaviour
 
             if (player2In && !wallOFF)
             {
+
                 if (Input.GetKeyDown(KeyCode.I))
                 {
                     wallOFF = true;
@@ -67,36 +61,31 @@ public class WallButton : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player1")
         {
             playerIn = true;
-
-            if(player.GetComponent<Movement>().Player == 1)
-            {
                 player1In = true;
-            }
+        }
 
-            if (player.GetComponent<Movement>().Player == 2)
-            {
+        if (collision.tag == "Player2")
+        {
+            playerIn = true;
                 player2In = true;
-            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+
+        if (collision.tag == "Player1")
         {
             playerIn = false;
-        }
-
-        if (player.GetComponent<Movement>().Player == 1)
-        {
             player1In = false;
         }
 
-        if (player.GetComponent<Movement>().Player == 2)
+        if (collision.tag == "Player2")
         {
+            playerIn = false;
             player2In = false;
         }
     }

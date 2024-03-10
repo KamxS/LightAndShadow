@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3057520553389460595}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsPlayerIsIn: []
+  potentialLights: []
+  toChange: []
 --- !u!114 &3057520553389460595
 MonoBehaviour:
   m_ObjectHideFlags: 0

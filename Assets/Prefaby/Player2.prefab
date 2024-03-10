@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightsPlayerIsIn: []
+  potentialLights: []
+  toChange: []
 --- !u!114 &3844967745534667196
 MonoBehaviour:
   m_ObjectHideFlags: 0
